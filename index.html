@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Streben RPG - Scheda del Personaggio</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #2b2b2b;
+            font-family: serif;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        /* Pulsanti di gestione in alto */
+        .toolbar {
+            position: fixed;
+            top: 10px;
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            z-index: 100;
+            display: flex;
+            gap: 8px;
+        }
+        .toolbar button {
+            background: #2d2d2d;
+            color: #e0e0e0;
+            border: 1px solid #444;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: sans-serif;
+            font-size: 12px;
+        }
+        .toolbar button.save { background: #b35900; color: white; }
+        .toolbar button.reset { background: #660000; color: white; }
+
+        /* Il foglio della scheda in stile pergamena */
+        .sheet {
+            background-color: #f4efe6;
+            background-image: radial-gradient(#d8d0c1 15%, transparent 16%), radial-gradient(#d8d0c1 15%, transparent 16%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            border: 2px solid #2b2b2b;
+            width: 100%;
+            max-width: 500px;
+            padding: 30px 20px;
+            margin-top: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            box-sizing: border-box;
+        }
+
+        .header-box {
+            background-color: #121212;
+            color: #f4efe6;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .header-box h1 {
+            margin: 0;
+            font-size: 26px;
+            letter-spacing: 2px;
+            font-family: fantasy, serif;
+        }
+        .header-box p {
+            margin: 5px 0 0 0;
+            font-size: 11px;
+            letter-spacing: 1px;
+            font-family: sans-serif;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            background-color: #121212;
+            color: #f4efe6;
+            padding: 5px 10px;
+            font-size: 14px;
+            font-family: fantasy, serif;
+            letter-spacing: 1px;
+            margin: 20px 0 10px 0;
+            text-transform: uppercase;
+        }
+
+        .field-group {
+            margin-bottom: 12px;
+        }
+        .field-group label {
+            display: block;
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+        }
+        .field-group input[type="text"] {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #2b2b2b;
+            background: transparent;
+            font-family: serif;
+            font-size: 16px;
+            padding: 3px 0;
+            outline: none;
+            color: #121212;
+        }
+
+        /* Stile riga Statistiche / Cerchi */
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #d8d0c1;
+            padding-bottom: 5px;
+        }
+        .stat-row span {
+            font-family: fantasy, serif;
+            font-size: 18px;
+        }
+        .stat-circle {
+            width: 35px;
+            height: 35px;
+            border: 2px solid #2b2b2b;
+            border-radius: 50%;
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 14px;
+            background: rgba(255,255,255,0.5);
+            outline: none;
+        }
+
+        .grid-2 {
+            display: flex;
+            gap: 15px;
+        }
+        .grid-2 > div {
+            flex: 1;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #b5a996;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra comandi superiore -->
+    <div class="toolbar">
+        <button class="save">Salva Dati</button>
+        <button>Carica</button>
+        <button class="reset">Azzera</button>
+        <button>Stampa / PDF</button>
+    </div>
+
+    <!-- Contenitore della Scheda -->
+    <div class="sheet">
+        
+        <div class="header-box">
+            <h1>Streben</h1>
+            <p>Il gioco di ruolo Old School Grim Fantasy</p>
+        </div>
+
+        <div class="field-group">
+            <label>Giocatore</label>
+            <input type="text" placeholder="...">
+        </div>
+        <div class="field-group">
+            <label>Profilo / Personaggio</label>
+            <input type="text" placeholder="...">
+        </div>
+
+        <div class="section-title">Attributi</div>
+        <div class="stat-row">
+            <span>Corpo</span>
+            <input type="text" class="stat-circle" maxlength="2">
+        </div>
+        <div class="stat-row">
+            <span>Mente</span>
+            <input type="text" class="stat-circle" maxlength="2">
+        </div>
+        <div class="stat-row">
+            <span>Spirito</span>
+            <input type="text" class="stat-circle" maxlength="2">
+        </div>
+
+        <div class="section-title">Risorse Vitali</div>
+        <div class="stat-row">
+            <span>Punti Ferita</span>
+            <input type="text" class="stat-circle" maxlength="2">
+        </div>
+        <div class="stat-row">
+            <span>Punti Magia</span>
+            <input type="text" class="stat-circle" maxlength="2">
+        </div>
+        <div class="stat-row">
+            <span>Punti Fortuna</span>
+            <input type="text" class="stat-circle" maxlength="2">
+        </div>
+
+        <div class="section-title">Arma & Protezione</div>
+        <div class="field-group">
+            <label>Arma principale</label>
+            <input type="text" placeholder="Nome arma e Danno...">
+        </div>
+        <div class="stat-row">
+            <span>Armatura (RD)</span>
+            <input type="text" class="stat-circle" maxlength="2">
+        </div>
+        <div class="stat-row">
+            <span>Scudo (RD)</span>
+            <input type="text" class="stat-circle" maxlength="2">
+        </div>
+
+        <div class="section-title">Inventario & Ricchezze</div>
+        <div class="field-group">
+            <label>Equipaggiamento</label>
+            <input type="text" placeholder="Oggetto 1...">
+            <input type="text" placeholder="Oggetto 2...">
+            <input type="text" placeholder="Oggetto 3...">
+        </div>
+        <div class="field-group">
+            <label>Dinarius (Monete)</label>
+            <input type="text" placeholder="Quantità...">
+        </div>
+
+    </div>
+
+</body>
+</html>
